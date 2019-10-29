@@ -1,0 +1,23 @@
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.thumbnail caption-full {
+	padding: 9px;
+}
+
+#mainNavbar .navbar-brand {
+
+  color: #ea1c2c;
+
+  font-size: 1.5rem;
+
+}
+
+#delete-form {
+	display:inline;
+}
