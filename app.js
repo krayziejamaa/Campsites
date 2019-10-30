@@ -11,7 +11,7 @@ var express 	= require("express"),
 	User		=require("./models/user"),
  	seedDB 		= require("./seeds")
 
-
+const PORT = process.env.PORT || 3000;
 
 var commentRoutes    = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
@@ -60,6 +60,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, process.env.IP, function(){
-	console.log("YelpCamp server has started!!");
+app.listen(PORT, () => {
+    console.log(`YelpCamp Server Is Running`);
 });
