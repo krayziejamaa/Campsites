@@ -19,6 +19,16 @@ var commentRoutes    = require("./routes/comments"),
 // seedDB();
 mongoose.connect("mongodb://localhost/yelp_camp_v10", { useNewUrlParser: true });
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://mwwnx99:2C9hJnrm78TY5-k@cluster0-qzkaw.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); 
