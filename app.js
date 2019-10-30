@@ -20,7 +20,6 @@ var commentRoutes    = require("./routes/comments"),
 mongoose.connect("mongodb+srv://mwwnx99:2C9hJnrm78TY5-k@cluster0-dfui4.mongodb.net/YelpCamp?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 
-2C9hJnrm78TY5-k
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); 
