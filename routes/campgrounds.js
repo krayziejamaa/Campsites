@@ -91,6 +91,16 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
 	});
 });
 
+router.get("/results", function(req, res){
+	var query = req.query.search;
+	var url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCpxOInbt_OnO6k_qb0gmBPdK4xaQHO-PIcx=006160844437050904885:woaxwnskuv2&q=campgrounds";
+	request(url, function(error, response, body){
+		if(!error && response.statusCode == 200)		{
+				var data = JSON.parse(body);
+				res.render("results", {data: data});
+		}
+	});
+});
 
 
 module.exports = router;

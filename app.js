@@ -10,6 +10,7 @@ var express 	= require("express"),
 	Comment 	= require("./models/comment"),
 	User		=require("./models/user"),
  	seedDB 		= require("./seeds")
+    request	    = require("request");
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,20 +19,15 @@ var commentRoutes    = require("./routes/comments"),
 	indexRoutes      = require("./routes/index")
 // seedDB();
 
+console.log(process.env.DATABASEURL);
+
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v10";
 mongoose.connect(url);
-// mongoose.connect("mongodb+srv://mwwnx99:2C9hJnrm78TY5-k@cluster0-dfui4.mongodb.net/test?retryWrites=true&w=majority", { 
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true
-// }).then(() => {
-// 	console.log("connected to DB!");
-// }).catch(err => {
-// 	console.log("ERROR", err.message);
-// });
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public")); 
+app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB(); //seed the database
